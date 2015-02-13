@@ -1,0 +1,29 @@
+{
+    "name": "scc-northwest/server-utilities",
+    "description": "Server utilities for NW Brands server",
+    "tags": [
+        "nginx",
+        "domain",
+        "host",
+        "default",
+        "utilities",
+        "server"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "NWBrands\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Valentin Prugnaud",
+            "email": "valentin@sccnorthwest.com"
+        }
+    ],
+   "minimum-stability": "stable",
+    "require": {
+        "illuminate/container":"~5.0",
+        "illuminate/http":"~5.0"
+    }
+}
