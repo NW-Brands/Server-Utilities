@@ -38,6 +38,12 @@ body {
 	background-color: #fff;
 }
 
+body.yoda{
+    background-image:    url(../img/yoda.jpg);
+    background-repeat:   no-repeat;
+    background-position: right bottom;
+}
+
 body.fx-map-white {
 	background-image: url(../img/map-white.png);
 	background-repeat: no-repeat;
