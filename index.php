@@ -8,7 +8,7 @@ $app = new Application();
 
 $app->boot();
 
-$app->registerDomains(["nwbrands.co"]);
+$app->registerDomains(["nwbrands.co", "www.nwbrands.co"]);
 $app->registerTemplates([ "404", "coming-soon", "domain-new", "domain-sale", "soon" ]);
 
 $app->showTemplate()->showDomain()->showDefault();
