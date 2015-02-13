@@ -46,3 +46,15 @@ $app->showTemplate()->showDomain()->showDefault();
 ```
 
 The method `showTemplate()` should be called first for your basic templates to be available from any domain.
+
+## Template themes
+
+* Emerald: `theme-emerald`
+* Sky: `theme-sky`
+* Sun: `theme-sun`
+* Ruby: `theme-ruby`
+* Orchid: `theme-orchid`
+* Plum: `theme-plum`
+* Sea: `theme-sea`
+* Earth: `theme-earth`
+* Black: `theme-black`
