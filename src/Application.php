@@ -32,8 +32,6 @@ class Application extends Container {
     {
         $domainName = $this['request']->getHost();
 
-        dd( $domainName );
-
         if ( array_key_exists( $domainName, $this->redirections ) )
         {
             header( "HTTP/1.1 301 Moved Permanently" );
