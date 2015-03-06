@@ -11,6 +11,7 @@ use Illuminate\Container\Container;
  */
 class Application extends Container {
 
+    protected $redirections = [];
     protected $domains = [];
     protected $templates = [];
 
@@ -24,10 +25,28 @@ class Application extends Container {
     }
 
     /**
+     * Redirect domains
+     * @return $this
+     */
+    public function redirectDomains()
+    {
+        $domainName = $this['request']->server( 'SERVER_NAME' );
+
+        if ( array_key_exists( $domainName, $this->redirections ) )
+        {
+            header( "HTTP/1.1 301 Moved Permanently" );
+            header( "Location: ".$this->redirections[$domainName] );
+            die;
+        }
+
+        return $this;
+    }
+
+    /**
      * Try to show a domain specific page
      * @return $this
      */
-    public function showDomain()
+    public function showDomainTemplates()
     {
         $domainName = $this['request']->getHost();
         if ( in_array( $domainName, $this->domains ) )
@@ -67,10 +86,19 @@ class Application extends Container {
     }
 
     /**
+     * Setup the domains that needs a 301 redirection
+     * @param array $redirections
+     */
+    public function registerRedirectedDomains( $redirections = [ ] )
+    {
+        $this->redirections += $redirections;
+    }
+
+    /**
      * Setup the available domains template for the app
      * @param array $domains
      */
-    public function registerDomains($domains = [])
+    public function registerDomainTemplates($domains = [])
     {
         $this->domains += $domains;
     }

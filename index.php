@@ -8,7 +8,10 @@ $app = new Application();
 
 $app->boot();
 
-$app->registerDomains(["nwbrands.co", "www.nwbrands.co", "www.nwbrands.ca", "nwbrands.ca"]);
+$app->registerRedirectedDomains([
+    'northwestseatcovers.com' => 'https://www.nwseatcovers.com'
+]);
+$app->registerDomainTemplates(["nwbrands.co", "www.nwbrands.co", "www.nwbrands.ca", "nwbrands.ca"]);
 $app->registerTemplates([ "404", "coming-soon", "domain-new", "domain-sale", "soon" ]);
 
-$app->showTemplate()->showDomain()->showDefault();
+$app->redirectDomains()->showTemplate()->showDomainTemplates()->showDefault();
