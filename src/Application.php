@@ -30,14 +30,14 @@ class Application extends Container {
      */
     public function redirectDomains()
     {
-        $serverName = $this['request']->server( 'SERVER_NAME' );
+        $domainName = $this['request']->getHost();
 
-        dd($serverName);
+        dd( $domainName );
 
-        if ( array_key_exists( $serverName, $this->redirections ) )
+        if ( array_key_exists( $domainName, $this->redirections ) )
         {
             header( "HTTP/1.1 301 Moved Permanently" );
-            header( "Location: ".$this->redirections[ $serverName ] );
+            header( "Location: ".$this->redirections[ $domainName ] );
             die;
         }
 
